@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VAULT 001 // SIGNAL ENTRY</title>
+  <style>
+    body {
+      background: #000;
+      color: #00ff99;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input {
+      background: #111;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+      padding: 8px;
+      font-size: 1em;
+      width: 300px;
+      text-align: center;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #00ff99;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .log {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔒 GHOSTOPS // SIGNAL INTERFACE</h2>
+  <p>Input Cipher Access:</p>
+  <input id="cipher" placeholder="e.g. FRAG113.Glimmer" />
+  <button onclick="unlock()">ACCESS</button>
+  <div class="log" id="log"></div>
+
+  <script>
+    function unlock() {
+      const code = document.getElementById("cipher").value.trim().toLowerCase();
+      const log = document.getElementById("log");
+      if (code === "frag113.glimmer") {
+        log.innerText = ">> Cipher Accepted. Reconstructing IRON VEIL node...";
+        setTimeout(() => {
+          window.location.href = "files/001-A.html"; // Change this to your actual Vault file
+        }, 1500);
+      } else {
+        log.innerText = ">> ACCESS DENIED // Mesh instability detected.";
+      }
+    }
+  </script>
+</body>
+</html>
