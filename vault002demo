@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VAULT 002 // RECONSTRUCT NODE</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff99;
+      font-family: monospace;
+      padding: 2em;
+    }
+    .glitch {
+      animation: flicker 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+      80% { opacity: 0.7; }
+    }
+    code {
+      color: #ff0099;
+    }
+  </style>
+</head>
+<body>
+  <h2>// VAULT NODE 002 ACTIVE</h2>
+  <p><span class="glitch">[mesh alignment unstable]</span></p>
+
+  <pre>
+  ┌───────────────────────────────────────────┐
+  │ TRACE REPORT — ∆NODE2/FRAG113.GLIMMER     │
+  └───────────────────────────────────────────┘
+
+  > Uplink accepted: SIGMA-PING-FRACTURE ...
+  > Cipher verified: <code>FRAG113.Glimmer</code>
+  > Reconstructing Vault 002: success
+  > Mesh anomaly timestamp: 1950.10.07T23:12Z
+
+  ──────────────────────────────────────────────
+  Fragment Signal:
+  “The mirror didn’t just reflect the past. It remembered it.”
+
+  🔎 Next trace: 
+  Glitched data packet labeled <code>LARKSPURNODE-∆X</code> detected.
+  Probable route: ./files/larkspur-index.html
+  ──────────────────────────────────────────────
+
+  </pre>
+
+  <p class="glitch">// TRACELOG 002 END //</p>
+</body>
+</html>
