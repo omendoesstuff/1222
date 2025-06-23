@@ -63,6 +63,28 @@ Embedded unit intercepted anomalous burst <span class="redacted">█████
 &gt; To continue, locate cipher: <code>DEAD GLASS</code><br>
 &gt; Entry point: <span class="redacted">████████</span> (if it still listens)</p>
 
+<h3>// ACCESS TERMINAL</h3>
+<p>Enter passkey to unlock the next vault:</p>
+<input id="cipher" placeholder="e.g. DEAD GLASS" style="background:black;color:#00ff99;border:1px solid #00ff99;padding:5px;font-family:monospace;">
+<button onclick="checkCipher()" style="margin-left:10px;background:#00ff99;border:none;padding:5px 10px;font-weight:bold;cursor:pointer;">UNLOCK</button>
+<div id="status" style="margin-top:1em;color:#ff0099;"></div>
+
+<script>
+function checkCipher() {
+  const code = document.getElementById("cipher").value.trim().toLowerCase();
+  const status = document.getElementById("status");
+  if (code === "dead glass") {
+    status.innerText = ">> Cipher Accepted. Vault redirect initializing...";
+    setTimeout(() => {
+      window.location.href = "./files/vault002-deadglass.html"; // or your chosen file
+    }, 1500);
+  } else {
+    status.innerText = ">> Invalid cipher. Mesh disturbance detected.";
+  }
+}
+</script>
+
+  
 <pre>
 🜃 Vault initialized by recovered protocol.
 No central handler confirmed.
