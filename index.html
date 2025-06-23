@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>GHOSTOPS // VAULT 001</title>
+  <title>GHOSTOPS // VAULT ACCESS NODE</title>
   <style>
     body {
       background-color: black;
@@ -19,18 +19,31 @@
       padding: 0 4px;
       border-radius: 2px;
     }
+    .unlocked {
+      color: #00ff99 !important;
+      background: transparent !important;
+    }
     .view-link {
       color: #00ffff;
       text-decoration: none;
     }
-    em {
-      color: #ff0099;
+    code {
+      background: #111;
+      padding: 2px 6px;
+      font-size: 0.95em;
+    }
+    input, button {
+      background: black;
+      color: #00ff99;
+      border: 1px solid #00ff99;
+      font-family: monospace;
+      padding: 5px;
     }
   </style>
 </head>
 <body>
 
-<h1># GHOSTOPS // VAULT 001</h1>
+<h1>GHOSTOPS // VAULT ACCESS NODE</h1>
 <blockquote>
   &gt; Signal Verified: 113.001 MHz<br>
   &gt; Archive Status: Partial Integrity<br>
@@ -38,59 +51,50 @@
 </blockquote>
 
 <h2>∆_001-A :: [INITIATED]</h2>
-<p><strong>Classification:</strong> ALPHA-5 NETWORK<br>
-<strong>Subject:</strong> <span class="redacted">██████</span><br>
-<strong>Location:</strong> <span class="redacted">████████</span> – <span class="redacted">██████</span></p>
-<p><strong>Summary:</strong><br>
-Embedded unit intercepted anomalous burst <span class="redacted">██████</span>. Operator lost.</p>
+<p>
+  <strong>Classification:</strong> ALPHA-5 NETWORK<br>
+  <strong>Subject:</strong> <span class="redacted" data-unredacted="Echo-113">██████</span><br>
+  <strong>Location:</strong> <span class="redacted" data-unredacted="[REDACTED]—Border Zone">████████</span><br>
+  <strong>Summary:</strong> Embedded unit intercepted anomalous burst <span class="redacted" data-unredacted="[UNCLARIFIED FREQUENCY]">██████</span>. Operator lost.
+</p>
 <blockquote><em>“The signal’s not theirs. It’s older. It’s watching us too.”</em></blockquote>
 
 <hr />
 
 <h3>ACCESS STATUS</h3>
 <ul>
-  <li>[x] FILE:001-A // OPERATION: IRON VEIL — <a class="view-link" href="./files/001-A.html">View Archive</a></li>
-  <li>[ ] <span class="redacted">██████</span> // ASHVEIL RECONSTRUCT — Access Locked</li>
-  <li>[ ] <span class="redacted">██████</span> // DELTA-GLASS ECHO — Fragmented</li>
-  <li>[ ] <span class="redacted">██████</span>// TRX-Δ1 INTERCEPTOR — Restoration Pending</li>
-  <li>[ ] <span class="redacted">██████</span>// LARKSPUR INDEX — Clearance Required</li>
+  <li>[x] FILE:001-A // IRON VEIL — <a class="view-link" href="./files/001-A.html">View Archive</a></li>
+  <li>[ ] <span class="redacted" data-unredacted="ASHVEIL RECONSTRUCT">██████</span> — Access Locked</li>
+  <li>[ ] <span class="redacted" data-unredacted="DELTA-GLASS ECHO">██████</span> — Fragmented</li>
+  <li>[ ] <span class="redacted" data-unredacted="TRX-Δ1 INTERCEPTOR">██████</span> — Restoration Pending</li>
+  <li>[ ] <span class="redacted" data-unredacted="LARKSPUR INDEX">██████</span> — Clearance Required</li>
 </ul>
 
 <hr />
 
-<h3>🔐 INSTRUCTIONS</h3>
-<p>This vault node is unstable. You are not authorized. You are not alone.<br>
-&gt; To continue, locate cipher: <code>DEAD GLASS</code><br>
-&gt; Entry point: <span class="redacted">████████</span> (if it still listens)</p>
-
 <h3>// ACCESS TERMINAL</h3>
-<p>Enter passkey to unlock the next vault:</p>
-<input id="cipher" placeholder="e.g. DEAD GLASS" style="background:black;color:#00ff99;border:1px solid #00ff99;padding:5px;font-family:monospace;">
-<button onclick="checkCipher()" style="margin-left:10px;background:#00ff99;border:none;padding:5px 10px;font-weight:bold;cursor:pointer;">UNLOCK</button>
-<div id="status" style="margin-top:1em;color:#ff0099;"></div>
+<p>Enter passkey to unseal mesh fragments:</p>
+<input id="cipher" placeholder="e.g. DEAD GLASS" />
+<button onclick="checkCipher()">UNLOCK</button>
+<div id="status" style="margin-top: 1em;"></div>
 
 <script>
 function checkCipher() {
-  const code = document.getElementById("cipher").value.trim().toLowerCase();
+  const input = document.getElementById("cipher").value.trim().toLowerCase();
   const status = document.getElementById("status");
-  if (code === "dead glass") {
-    status.innerText = ">> Cipher Accepted. Vault redirect initializing...";
-    setTimeout(() => {
-      window.location.href = "./files/vault002-deadglass.html"; // or your chosen file
-    }, 1500);
+  if (input === "dead glass") {
+    status.innerText = ">> Cipher accepted. Vault mesh unsealing...";
+    const redacted = document.querySelectorAll(".redacted");
+    redacted.forEach(el => {
+      el.textContent = el.getAttribute("data-unredacted");
+      el.classList.add("unlocked");
+    });
   } else {
-    status.innerText = ">> Invalid cipher. Mesh disturbance detected.";
+    status.innerText = ">> Invalid cipher. Echo disturbance logged.";
   }
 }
 </script>
 
-  
-<pre>
-🜃 Vault initialized by recovered protocol.
-No central handler confirmed.
-Memory rebuild incomplete.
-Proceed as if you were not meant to.
-</pre>
-
 </body>
 </html>
+
