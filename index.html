@@ -39,6 +39,13 @@
       font-family: monospace;
       padding: 5px;
     }
+    @keyframes glitchFlash {
+      0%, 100% { background-color: black; color: #00ff99; }
+      50% { background-color: #ff0099; color: #000; }
+    }
+    .glitch-effect {
+      animation: glitchFlash 0.15s alternate 8;
+    }
   </style>
 </head>
 <body>
@@ -73,7 +80,7 @@
 <hr />
 
 <h3>// ACCESS TERMINAL</h3>
-<p>Enter passkey to unseal mesh fragments:</p>
+<p>Enter passkey to trigger terminal response:</p>
 <input id="cipher" placeholder="e.g. DEAD GLASS" />
 <button onclick="checkCipher()">UNLOCK</button>
 <div id="status" style="margin-top: 1em;"></div>
@@ -82,19 +89,25 @@
 function checkCipher() {
   const input = document.getElementById("cipher").value.trim().toLowerCase();
   const status = document.getElementById("status");
+
   if (input === "dead glass") {
-    status.innerText = ">> Cipher accepted. Vault mesh unsealing...";
-    const redacted = document.querySelectorAll(".redacted");
-    redacted.forEach(el => {
-      el.textContent = el.getAttribute("data-unredacted");
-      el.classList.add("unlocked");
-    });
+    status.innerText = ">> Cipher accepted. Residual memory disturbance triggered.";
+    
+    // Glitch page effect
+    document.title = "/// TRACE INTERFERENCE ///";
+    document.body.classList.add("glitch-effect");
+    
+    setTimeout(() => {
+      document.title = "GHOSTOPS // VAULT ACCESS NODE";
+      document.body.classList.remove("glitch-effect");
+      status.innerText = ">> Mesh distortion stabilized. Awaiting further signal.";
+    }, 3000);
+
   } else {
-    status.innerText = ">> Invalid cipher. Echo disturbance logged.";
+    status.innerText = ">> Invalid cipher. Echo fluctuation detected.";
   }
 }
 </script>
 
 </body>
 </html>
-
